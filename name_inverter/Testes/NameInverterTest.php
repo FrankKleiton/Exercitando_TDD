@@ -89,7 +89,13 @@ class NameInverterTest extends TestCase
             if (count($names) == 1) {
                 return $names[0];
             } else {
-                return $names[1].', '.$names[0];
+                $postNominal = "";
+                if (count($names) > 2) {
+                    $postNominal = $names[2];
+                    return $names[1].', '.$names[0].' '.$postNominal;
+                } else {
+                    return $names[1].', '.$names[0];
+                }
             }
         }
     }
