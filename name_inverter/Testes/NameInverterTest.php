@@ -69,8 +69,9 @@ class NameInverterTest extends TestCase
      */
     public function postNominal_stayInTheEnd()
     {
+        // Isso viola o single assert rule
         $this->assertInverted("First Last Sr.", "Last, First Sr.");
-        $this->assertInverted("First Last BS. Phd.", "Last, First BS. Phd");
+        $this->assertInverted("First Last BS. Phd.", "Last, First BS. Phd.");
     }
 
     private function assertInverted($originalName, $invertedName)
@@ -90,10 +91,10 @@ class NameInverterTest extends TestCase
             if (count($names) == 1) {
                 return $names[0];
             } else {
-                $postNominal = "";
+                $postNominals = "";
                 if (count($names) > 2)
-                    $postNominal = $names[2];
-                return trim($names[1].', '.$names[0].' '.$postNominal);
+                    $postNominals = $this->getPostNominals($names);
+                return trim($names[1].', '.$names[0].' '.$postNominals);
             }
         }
     }
@@ -106,5 +107,19 @@ class NameInverterTest extends TestCase
     private function isHonorific($word)
     {
         return preg_match('/\./', $word[0]);
+    }
+
+    private function getPostNominals($names)
+    {   $postNominals = [];
+        if (count($names) > 3) {
+            $postNominals = array_slice($names, 2, count($names)-1);
+        } else {
+            $postNominals = array_slice($names, 2);
+        }
+        $postNominal = "";
+        foreach ($postNominals as $nominal) {
+            $postNominal .= $nominal." ";
+        }
+        return $postNominal;       
     }
 }
