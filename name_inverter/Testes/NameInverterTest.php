@@ -70,6 +70,7 @@ class NameInverterTest extends TestCase
     public function postNominal_stayInTheEnd()
     {
         $this->assertInverted("First Last Sr.", "Last, First Sr.");
+        $this->assertInverted("First Last BS. Phd.", "Last, First BS. Phd");
     }
 
     private function assertInverted($originalName, $invertedName)
