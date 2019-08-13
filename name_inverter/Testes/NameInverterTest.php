@@ -63,7 +63,15 @@ class NameInverterTest extends TestCase
         $this->assertInverted("Mr. First Last", "Last, First");
         $this->assertInverted("Mrs. First Last", "Last, First");
     }
-    
+
+    /**
+     * @test
+     */
+    public function postNominal_stayInTheEnd()
+    {
+        $this->assertInverted("First Last Sr.", "Last, First Sr.");
+    }
+
     private function assertInverted($originalName, $invertedName)
     {
         return $this->assertEquals($this->invertName($originalName), $invertedName);
@@ -86,13 +94,13 @@ class NameInverterTest extends TestCase
         }
     }
 
-    private function splitNames($name)
+    private function splitNames($names)
     {
-        return preg_split('/\s+/', trim($name));
+        return preg_split('/\s+/', trim($names));
     }
 
-    private function isHonorific($names)
+    private function isHonorific($word)
     {
-        return preg_match('/Mr.|Mrs./', $names[0]);
+        return preg_match('/\./', $word[0]);
     }
 }
