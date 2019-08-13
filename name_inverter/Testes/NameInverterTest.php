@@ -59,7 +59,7 @@ class NameInverterTest extends TestCase
      */
     public function ignoreHonorifics()
     {
-        // Teste com Violação clara da regra Triple A - Arrange, Act, Assert
+        // Não viola a regra Triple A - Arrange, Act, Assert uma vez que os dois asserts garantem a veracidade do mesmo teste, lógicamente são um assert. Seria uma violação caso fosse feito um Arrange(Instâncias de váriaveis, objetos ou banco), Act(Função ex: invertName), Assert, Arrange, Act, Assert.
         $this->assertInverted("Mr. First Last", "Last, First");
         $this->assertInverted("Mrs. First Last", "Last, First");
     }
