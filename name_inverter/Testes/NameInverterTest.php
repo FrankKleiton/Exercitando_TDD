@@ -72,14 +72,20 @@ class NameInverterTest extends TestCase
         if ($name == null || strlen($name) <= 0) {
             return "";
         } else {
-            $names = preg_split('/\s+/', trim($name));
+            $names = $this->splitNames($name);
             if (count($names) > 1 && $names[0] == 'Mr.') {
                 array_splice($names, 0, 1);
             }
             if (count($names) == 1) {
                 return $names[0];
-            }   
-            return $names[1].', '.$names[0];
+            } else {
+                return $names[1].', '.$names[0];
+            }
         }
+    }
+
+    private function splitNames($name)
+    {
+        return preg_split('/\s+/', trim($name));
     }
 }
