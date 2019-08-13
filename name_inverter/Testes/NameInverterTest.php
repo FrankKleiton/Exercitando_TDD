@@ -64,11 +64,12 @@ class NameInverterTest extends TestCase
         if ($name == null || strlen($name) <= 0) {
             return "";
         } else {
-            $name = trim(preg_replace('!\s+!', ' ', $name));
-            $names = explode(' ', $name);
-            if (count($names) == 1)
-                return $name;    
-            return $names[1].', '.$names[0];
+            $names = preg_split('/\s+/', trim($name));
+            if (count($names) == 1) {
+                return $names[0];
+            } else {    
+                return $names[1].', '.$names[0];
+            }
         }
     }
 }
