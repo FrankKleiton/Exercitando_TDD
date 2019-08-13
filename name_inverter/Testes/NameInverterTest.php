@@ -57,9 +57,14 @@ class NameInverterTest extends TestCase
     /**
      * @test
      */
-    public function ignoreHonorific()
+    public function ignoreHonorifics()
     {
+        $this->markTestIncomplete(
+            'Ignorar Teste'
+          );
+        // Teste com Violação clara da regra Triple A - Arrange, Act, Assert
         $this->assertInverted("Mr. First Last", "Last, First");
+        $this->assertInverted("Mrs. First Last", "Last, First");
     }
     
     private function assertInverted($originalName, $invertedName)
