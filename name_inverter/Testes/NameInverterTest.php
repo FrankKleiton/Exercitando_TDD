@@ -59,9 +59,6 @@ class NameInverterTest extends TestCase
      */
     public function ignoreHonorifics()
     {
-        $this->markTestIncomplete(
-            'Ignorar Teste'
-          );
         // Teste com Violação clara da regra Triple A - Arrange, Act, Assert
         $this->assertInverted("Mr. First Last", "Last, First");
         $this->assertInverted("Mrs. First Last", "Last, First");
@@ -78,7 +75,7 @@ class NameInverterTest extends TestCase
             return "";
         } else {
             $names = $this->splitNames($name);
-            if (count($names) > 1 && $names[0] == 'Mr.') {
+            if (count($names) > 1 && $this->isHonorific($names)) {
                 array_splice($names, 0, 1);
             }
             if (count($names) == 1) {
@@ -92,5 +89,10 @@ class NameInverterTest extends TestCase
     private function splitNames($name)
     {
         return preg_split('/\s+/', trim($name));
+    }
+
+    private function isHonorific($names)
+    {
+        return $names[0] == 'Mr.';
     }
 }
