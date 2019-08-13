@@ -93,6 +93,6 @@ class NameInverterTest extends TestCase
 
     private function isHonorific($names)
     {
-        return $names[0] == 'Mr.';
+        return preg_match('/Mr.|Mrs./', $names[0]);
     }
 }
