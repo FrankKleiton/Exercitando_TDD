@@ -3,9 +3,20 @@
 require __DIR__ . "./../vendor/autoload.php";
 
 use PHPUnit\Framework\TestCase;
+use Testes\NameInverter;
 
 class NameInverterTest extends TestCase
 {
+    private $nameInverter;
+
+    /**
+     * @before
+     */
+    public function setUpNameInverter()
+    {
+        $this->nameInverter = new NameInverter();
+    }
+
     /**
      * @test
      */
@@ -84,80 +95,7 @@ class NameInverterTest extends TestCase
 
     private function assertInverted($originalName, $invertedName)
     {
-        return $this->assertEquals($this->invertName($originalName), $invertedName);
+        return $this->assertEquals($this->nameInverter->invertName($originalName), $invertedName);
     }
 
-    private function invertName($name): string
-    {
-        if ($name == null || strlen($name) <= 0)
-            return "";
-        else
-            return $this->formatName($this->removeHonorifics($this->splitNames($name)));
-    }
-
-    /**
-     * @param $names
-     * @return string
-     */
-    private function formatName($names): string
-    {
-        if (count($names) == 1)
-            return $names[0];
-        return $this->formatMultiElementName($names);
-    }
-
-    /**
-     * @param array $names
-     * @return array
-     */
-    private function removeHonorifics(array $names): array
-    {
-        if (count($names) > 1 && $this->isHonorific($names))
-            array_splice($names, 0, 1);
-        return $names;
-    }
-
-    private function splitNames($names): array
-    {
-        return preg_split('/\s+/', trim($names));
-    }
-
-    /**
-     * @param $names
-     * @return string
-     */
-    private function formatMultiElementName($names): string
-    {
-        $postNominals = "";
-        if (count($names) > 2)
-            $postNominals = $this->getPostNominals($names);
-        return trim($names[1] . ', ' . $names[0] . ' ' . $postNominals);
-    }
-
-    private function isHonorific($word): bool
-    {
-        return preg_match('/\./', $word[0]);
-    }
-
-    private function getPostNominals($names): string
-    {
-        $postNominal = "";
-        foreach ($this->extractPostNominals($names) as $nominal)
-            $postNominal .= $nominal . " ";
-        return $postNominal;
-    }
-
-    /**
-     * @param $names
-     * @return array
-     */
-    private function extractPostNominals($names): array
-    {
-        $postNominals = [];
-        if (count($names) > 3)
-            $postNominals = array_slice($names, 2, count($names) - 1);
-        else
-            $postNominals = array_slice($names, 2);
-        return $postNominals;
-    }
 }

@@ -20,6 +20,10 @@ class ComposerStaticInit3b59a3feac4557d1af6077f7f547ee5a
         array (
             'Webmozart\\Assert\\' => 17,
         ),
+        'T' => 
+        array (
+            'Testes\\' => 7,
+        ),
         'S' => 
         array (
             'Symfony\\Polyfill\\Ctype\\' => 23,
@@ -33,10 +37,6 @@ class ComposerStaticInit3b59a3feac4557d1af6077f7f547ee5a
             'Doctrine\\Instantiator\\' => 22,
             'DeepCopy\\' => 9,
         ),
-        'A' => 
-        array (
-            'App\\' => 4,
-        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -49,6 +49,10 @@ class ComposerStaticInit3b59a3feac4557d1af6077f7f547ee5a
         'Webmozart\\Assert\\' => 
         array (
             0 => __DIR__ . '/..' . '/webmozart/assert/src',
+        ),
+        'Testes\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Testes',
         ),
         'Symfony\\Polyfill\\Ctype\\' => 
         array (
@@ -65,10 +69,6 @@ class ComposerStaticInit3b59a3feac4557d1af6077f7f547ee5a
         'DeepCopy\\' => 
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
-        ),
-        'App\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/App',
         ),
     );
 
@@ -756,6 +756,7 @@ class ComposerStaticInit3b59a3feac4557d1af6077f7f547ee5a
         'SebastianBergmann\\Type\\VoidType' => __DIR__ . '/..' . '/sebastian/type/src/VoidType.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
         'Symfony\\Polyfill\\Ctype\\Ctype' => __DIR__ . '/..' . '/symfony/polyfill-ctype/Ctype.php',
+        'Testes\\NameInverter' => __DIR__ . '/../..' . '/Testes/NameInverter.php',
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',
         'TheSeer\\Tokenizer\\Exception' => __DIR__ . '/..' . '/theseer/tokenizer/src/Exception.php',
         'TheSeer\\Tokenizer\\NamespaceUri' => __DIR__ . '/..' . '/theseer/tokenizer/src/NamespaceUri.php',
