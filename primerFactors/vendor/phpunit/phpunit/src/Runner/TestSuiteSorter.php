@@ -307,7 +307,7 @@ final class TestSuiteSorter
         $priorityB = $this->defectSortOrder[self::getTestSorterUID($b)] ?? 0;
 
         if ($priorityB <=> $priorityA) {
-            // Sort defect weight descending
+            // sort defect weight descending
             return $priorityB <=> $priorityA;
         }
 

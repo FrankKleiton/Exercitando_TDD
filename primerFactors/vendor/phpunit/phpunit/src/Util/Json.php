@@ -58,7 +58,7 @@ final class Json
 
     /*
      * JSON object keys are unordered while PHP array keys are ordered.
-     * Sort all array keys to ensure both the expected and actual values have
+     * sort all array keys to ensure both the expected and actual values have
      * their keys in the same order.
      */
     private static function recursiveSort(&$json): void

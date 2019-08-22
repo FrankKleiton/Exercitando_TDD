@@ -93,7 +93,7 @@ class CallCenter
             throw $this->createUnexpectedCallException($prophecy, $methodName, $arguments);
         }
 
-        // Sort matches by their score value
+        // sort matches by their score value
         @usort($matches, function ($match1, $match2) { return $match2[0] - $match1[0]; });
 
         $score = $matches[0][0];
