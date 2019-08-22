@@ -1,0 +1,1 @@
+C:37:"PHPUnit\Runner\DefaultTestResultCache":220:{a:2:{s:7:"defects";a:2:{s:24:"PrimeFactorTest::nothing";i:5;s:36:"PrimeFactorTest::canFactorIntoPrimes";i:3;}s:5:"times";a:2:{s:24:"PrimeFactorTest::nothing";d:0.011;s:36:"PrimeFactorTest::canFactorIntoPrimes";d:0.003;}}}

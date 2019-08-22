@@ -1,0 +1,1 @@
+C:37:"PHPUnit\Runner\DefaultTestResultCache":316:{a:2:{s:7:"defects";a:4:{s:20:"WrapperTest::nothing";i:5;s:23:"WrapperTest::shouldWrap";i:3;s:20:"WrapperTest::factors";i:3;s:17:"SortTest::nothing";i:5;}s:5:"times";a:4:{s:20:"WrapperTest::nothing";d:0.002;s:23:"WrapperTest::shouldWrap";d:0.003;s:20:"WrapperTest::factors";d:0.003;s:17:"SortTest::nothing";d:0.002;}}}
